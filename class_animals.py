@@ -45,7 +45,7 @@ class MilkAnimal(Animal):
         self.milk()
 
 
-# Классы для коров и коз и наследуем методы от родителя - MilkAnimal
+# Классы для коров и коз. Наследуем методы от родителя MilkAnimal и Animal
 class Cow(MilkAnimal):
     def __init__(self, name, weight):
         super().__init__(name, weight, 'мууу')
@@ -56,7 +56,7 @@ class Goat(MilkAnimal):
         super().__init__(name, weight, 'ме-ме-ме')
 
 
-# Общий класс для птиц
+# Общий класс для птиц.
 # Класс является потомком Animal. Наследуются параметры, методы(feed, voice)
 # Добавлен метод - egg и переопределен метод product для запуска egg
 class Bird(Animal):
@@ -68,7 +68,7 @@ class Bird(Animal):
         self.egg()
 
 
-# Классы для гусей, кур и уток, наследуем методы от родителя - Bird
+# Классы для гусей, кур и уток. Наследуем методы от родителя Bird и Animal
 class Goose(Bird):
     def __init__(self, name, weight):
         super().__init__(name, weight, 'га-га-га')
