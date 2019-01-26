@@ -1,9 +1,14 @@
 # Домашнее задание к лекции «Классы и их применение в Python»
 class Animal:
+    total_weight = 0
+    heaviest_animal = None
+
     def __init__(self, name, weight, voice):
         self.name = name
         self.weight = weight
         self.voice = voice
+        Animal.total_weight = 0
+        Animal.heaviest_animal = None
 
     # Описываем общие методы взаимодействия: кормление, голос, продукт
     def feed(self):
@@ -112,19 +117,16 @@ for animal in animals:
     # animal.voice()
     print('  {} - {}'.format(animal.name, animal.voice))
 
-total_weight = 0
-# heaviest_animal = None
 for animal in animals:
-    total_weight = total_weight + animal.weight
-print('\nОбщий вес всех животных: ', format(total_weight))
+    Animal.total_weight = Animal.total_weight + animal.weight
+print('\nОбщий вес всех животных: {} '. format(Animal.total_weight))
 
-heaviest_animal = None
 for animal in animals:
-    if heaviest_animal is None:
-        heaviest_animal = animal
-    elif animal.weight > heaviest_animal.weight:
-        heaviest_animal = animal
-print('Самое тяжёлое животное: {}, имеет вес: {} кг, издаёт звук: {} '.format(heaviest_animal.name,
-                                                                              heaviest_animal.weight,
-                                                                              heaviest_animal.voice))
+    if Animal.heaviest_animal is None:
+        Animal.heaviest_animal = animal
+    elif animal.weight > Animal.heaviest_animal.weight:
+        Animal.heaviest_animal = animal
+print('Самое тяжёлое животное: {}, имеет вес: {} кг, издаёт звук: {} '.format(Animal.heaviest_animal.name,
+                                                                              Animal.heaviest_animal.weight,
+                                                                              Animal.heaviest_animal.voice))
 
